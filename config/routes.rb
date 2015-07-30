@@ -10,7 +10,3 @@ TaskApi::Engine.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   post 'users/task'
 end
-
-Rails.application.routes.draw do
-  mount TaskApi::Engine => '/', :as => 'aaa'
-end
