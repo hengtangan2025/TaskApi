@@ -4,5 +4,8 @@ TaskApi::Engine.routes.draw do
   get 'sessions/new'
 
   resources :users
-  post 'users/task'
+  root 'sessions#new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
 end
