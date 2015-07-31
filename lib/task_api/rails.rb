@@ -1,6 +1,4 @@
-require 'TaskApi/rails'
-
-module TaskApi
+module TaskApispecing
   class Engine < ::Rails::Engine
     isolate_namespace TaskApi
   end

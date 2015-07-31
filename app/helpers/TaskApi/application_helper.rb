@@ -1,2 +1,0 @@
-module TaskApi::ApplicationHelper
-end

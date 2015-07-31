@@ -1,5 +1,5 @@
-class TaskApi::SessionsController < ApplicationController
-   include SessionsHelper
+class TaskApi::SessionsController < TaskApi::ApplicationController
+   include TaskApi::SessionsHelper
 
 
   def new
@@ -7,7 +7,7 @@ class TaskApi::SessionsController < ApplicationController
 
   def create
 
-    user = User.find_by(mail: params[:session][:email])
+    user = TaskApi::User.find_by(mail: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
        log_in user
        redirect_to user

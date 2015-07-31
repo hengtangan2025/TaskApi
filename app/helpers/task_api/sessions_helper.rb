@@ -9,7 +9,7 @@ module TaskApi::SessionsHelper
   end
  
   def current_user
-    @current_user ||= User.where(id: session[:user_id].to_s).first
+    @current_user ||= TaskApi::User.where(id: session[:user_id].to_s).first
   end
 
   def logged_in?

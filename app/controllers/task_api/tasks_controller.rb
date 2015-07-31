@@ -1,15 +1,15 @@
-class TaskApi::TasksController < ApplicationController
+class TaskApi::TasksController < TaskApi::ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
   def index
     # @tasks = Task.all
-    @user=User.find(session[:user_id])
-    @tasks=@user.tasks
-    @year=params[:year]
-    @month=params[:month]
-    @date=params[:date]
+    @user = TaskApi::User.find(session[:user_id])
+    @tasks = @user.tasks
+    @year = params[:year]
+    @month = params[:month]
+    @date = params[:date]
   end
 
   # GET /tasks/1
@@ -19,7 +19,7 @@ class TaskApi::TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = TaskApi::Task.new
   end
 
   # GET /tasks/1/edit
@@ -29,7 +29,7 @@ class TaskApi::TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @user=User.find(session[:user_id])
+    @user = TaskApi::User.find(session[:user_id])
     @task = @user.tasks.new(task_params)
 
     # p @user.tasks
@@ -84,7 +84,7 @@ class TaskApi::TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+      @task = TaskApi::Task.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
